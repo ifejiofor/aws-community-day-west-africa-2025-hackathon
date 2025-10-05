@@ -1,0 +1,115 @@
+{
+  "aws": {
+    "region": "us-east-1"
+  },
+  "application": {
+    "displayName": "application-for-querying-regulatory-docs",
+    "description": "Application for querying regulatory documents",
+    "identityType": "AWS_IAM_IDP",
+    "iamIdentityProviderArn": "<YOUR-IAM-IDENTITY-CENTER-ARN>",
+    "qAppsConfiguration": {
+      "qAppsControlMode": "ENABLED"
+    },
+    "personalizationConfiguration": {
+      "personalizationControlMode": "ENABLED"
+    },
+    "attachmentsConfiguration": {
+      "attachmentsControlMode": "ENABLED"
+    }
+  },
+  "index": {
+    "displayName": "index-for-querying-regulatory-docs",
+    "description": "Index for querying regulatory documents",
+    "type": "STARTER",
+    "capacityConfiguration": {
+      "units": 1
+    },
+    "documentAttributeConfigurations": [
+      {
+        "name": "_document_title",
+        "type": "STRING",
+        "search": "ENABLED"
+      },
+      {
+        "name": "_authors",
+        "type": "STRING_LIST",
+        "search": "DISABLED"
+      },
+      {
+        "name": "_category",
+        "type": "STRING",
+        "search": "DISABLED"
+      },
+      {
+        "name": "_created_at",
+        "type": "DATE",
+        "search": "DISABLED"
+      },
+      {
+        "name": "_data_source_id",
+        "type": "STRING",
+        "search": "DISABLED"
+      },
+      {
+        "name": "_document_id",
+        "type": "STRING",
+        "search": "DISABLED"
+      },
+      {
+        "name": "_file_type",
+        "type": "STRING",
+        "search": "DISABLED"
+      },
+      {
+        "name": "_language_code",
+        "type": "STRING",
+        "search": "DISABLED"
+      },
+      {
+        "name": "_last_updated_at",
+        "type": "DATE",
+        "search": "DISABLED"
+      },
+      {
+        "name": "_source_uri",
+        "type": "STRING",
+        "search": "DISABLED"
+      },
+      {
+        "name": "_version",
+        "type": "STRING",
+        "search": "DISABLED"
+      },
+      {
+        "name": "_view_count",
+        "type": "NUMBER",
+        "search": "DISABLED"
+      }
+    ]
+  },
+  "dataSource": {
+    "displayName": "data-source-for-querying-regulatory-docs",
+    "description": "S3 data source for regulatory documents",
+    "type": "S3V2",
+    "syncSchedule": "0 6 * * ? *",
+    "roleArn": "arn:aws:iam::<YOUR-ACCOUNT>:role/QBusinessDataSourceRole",
+    "configuration": {
+      'type': 'S3V2',
+      'connectionConfiguration': {},
+      'repositoryConfigurations': {
+        'document': {
+          'fieldMappings': [
+            {
+              'dataSourceFieldName': 'title',
+              'indexFieldName': '_document_title',
+              'indexFieldType': 'STRING'
+            }
+          ]
+        }
+      },
+      'additionalProperties': {
+        'bucketName': '<YOUR-S3-BUCKET-NAME>'
+      }
+    }
+  }
+}
