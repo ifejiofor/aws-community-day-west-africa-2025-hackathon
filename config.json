@@ -94,21 +94,21 @@
     "syncSchedule": "0 6 * * ? *",
     "roleArn": "arn:aws:iam::<YOUR-ACCOUNT>:role/QBusinessDataSourceRole",
     "configuration": {
-      'type': 'S3V2',
-      'connectionConfiguration': {},
-      'repositoryConfigurations': {
-        'document': {
-          'fieldMappings': [
+      "type": "S3V2",
+      "connectionConfiguration": {},
+      "repositoryConfigurations": {
+        "document": {
+          "fieldMappings": [
             {
-              'dataSourceFieldName': 'title',
-              'indexFieldName': '_document_title',
-              'indexFieldType': 'STRING'
+              "dataSourceFieldName": "title",
+              "indexFieldName": "_document_title",
+              "indexFieldType": "STRING"
             }
           ]
         }
       },
-      'additionalProperties': {
-        'bucketName': '<YOUR-S3-BUCKET-NAME>'
+      "additionalProperties": {
+        "bucketName": "<YOUR-S3-BUCKET-NAME>"
       }
     }
   }
