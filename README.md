@@ -18,7 +18,7 @@ I uploaded a 3-minute video on YouTube demonstrating the application in action. 
 > - You must have an **AWS account**  
 > - You must enable **IAM Identity Center** in your AWS account (preferably in the `us-east-1` region)
 > - You must create at least one user in the **IAM Identity Center** (this user would be used to test the application) 
-> - You must create an **Amazon S3 bucket** and upload all regulatory documents from the [`/regulatory_docs`](./regulatory_docs) folder of this repository into the Amazon S3 bucket
+> - You must create an **Amazon S3 bucket** and upload all regulatory documents from the [`/regulatory_docs` folder of this repository](./regulatory_docs) into the Amazon S3 bucket
 ---
 
 1. Clone this repository
